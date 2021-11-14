@@ -1,35 +1,30 @@
-let val;
+//Create element
+const li = document.createElement("li");
 
-const list = document.querySelector("ul.collection"); //firstOne
-const listItem = document.querySelector("li.collection-item"); //firstOne
+//add class
+li.className = "collection-item";
 
-val = listItem;
-val = list;
+//add id
+li.id = "new-item";
 
-//Get child nodes
-val = list.childNodes; //also invisible notes like commends line breaks etc.
-val = list.childNodes[0].nodeName;
-val = list.childNodes[0].nodeType; //element = 1 attribute = 2  text=3 comment= 8 document= 9 docType=10
+//add attribute
+li.setAttribute("title", "New Item");
 
-//Get children element nodes
-val = list.children; //just html elements
-list.children[1].textContent = "Hello!";
+//create text node and append
+li.appendChild(document.createTextNode("hello"));
 
-val = list.firstChild; //Nodes
-val = list.firstElementChild; //First Element Child
-val = list.lastChild;
-val = list.lastElementChild;
+//append li as child to ul
+document.querySelector("ul.collection").appendChild(li);
 
-//get parent nodes
-val = listItem.parentNode;
-val =
-  listItem.parentElement.parentElement.parentElement.parentElement.parentElement
-    .parentElement.parentElement; //body!
+//create new link element
+const link = document.createElement("a");
+const i = document.createElement("i");
 
-//get siblings
-val = listItem.nextElementSibling;
-val = listItem.nextSibling;
-val = listItem.previousElementSibling;
-val = listItem.previousSibling;
+link.className = "delete-item secondary content";
+link.innerHTML = ' <i class="fa fa-remove"></i>';
 
-console.log(val);
+// i.className = "fa fa-remove";
+// document.querySelector("li:last-child").appendChild(i);
+document.querySelector("ul.collection").appendChild(link);
+
+console.log(link);
