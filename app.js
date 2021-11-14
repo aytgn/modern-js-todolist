@@ -1,27 +1,35 @@
-let taskTitle;
-//document.getElementById()
-taskTitle = document.getElementById("task-title");
+let val;
 
-//get from element
-val = taskTitle.id;
-val = taskTitle.className;
+const list = document.querySelector("ul.collection"); //firstOne
+const listItem = document.querySelector("li.collection-item"); //firstOne
 
-//change styling
-taskTitle.style.background = "#333";
-taskTitle.style.color = "#fff";
-taskTitle.style.padding = "5px";
-// document.getElementById("taskt-title").style.display = "none";
+val = listItem;
+val = list;
 
-//change content
-taskTitle.textContent = "Task List";
-taskTitle.innerText = "My Tasks";
-taskTitle.innerHTML = "<span style='color:red'> Task List </span>";
+//Get child nodes
+val = list.childNodes; //also invisible notes like commends line breaks etc.
+val = list.childNodes[0].nodeName;
+val = list.childNodes[0].nodeType; //element = 1 attribute = 2  text=3 comment= 8 document= 9 docType=10
+
+//Get children element nodes
+val = list.children; //just html elements
+list.children[1].textContent = "Hello!";
+
+val = list.firstChild; //Nodes
+val = list.firstElementChild; //First Element Child
+val = list.lastChild;
+val = list.lastElementChild;
+
+//get parent nodes
+val = listItem.parentNode;
+val =
+  listItem.parentElement.parentElement.parentElement.parentElement.parentElement
+    .parentElement.parentElement; //body!
+
+//get siblings
+val = listItem.nextElementSibling;
+val = listItem.nextSibling;
+val = listItem.previousElementSibling;
+val = listItem.previousSibling;
+
 console.log(val);
-
-//document.querySelector()
-let val2;
-
-val2 = document.querySelector("h5"); //get first occurrence
-val2 = document.querySelector("h5:nth-child(3)"); //get 3th occurrence
-
-console.log(val2);
