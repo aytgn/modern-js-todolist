@@ -1,30 +1,33 @@
-//Create element
-const li = document.createElement("li");
+const newHeading = document.createElement("h2");
+newHeading.id = "task-title";
+newHeading.appendChild(document.createTextNode("Task List"));
 
-//add class
-li.className = "collection-item";
+const oldHeading = document.getElementById("task-title");
+const cardAction = document.querySelector(".card-action");
 
-//add id
-li.id = "new-item";
+cardAction.replaceChild(newHeading, oldHeading);
 
-//add attribute
-li.setAttribute("title", "New Item");
+const lis = document.querySelectorAll("li");
+const list = document.querySelector("ul");
 
-//create text node and append
-li.appendChild(document.createTextNode("hello"));
+lis[0].remove();
+list.removeChild(lis[2]);
 
-//append li as child to ul
-document.querySelector("ul.collection").appendChild(li);
+const firstLi = document.querySelector("li:first-child");
+const link = firstLi.children[0];
 
-//create new link element
-const link = document.createElement("a");
-const i = document.createElement("i");
+let val;
 
-link.className = "delete-item secondary content";
-link.innerHTML = ' <i class="fa fa-remove"></i>';
+val = link.className;
+val = link.classList;
+link.classList.add("test");
+val = link.classList[2];
+link.classList.remove("test");
 
-// i.className = "fa fa-remove";
-// document.querySelector("li:last-child").appendChild(i);
-document.querySelector("ul.collection").appendChild(link);
+val = link.getAttribute("href");
+val = link.setAttribute("href", "http://google.com");
+val = link.hasAttribute("title"); //false
+link.setAttribute("title", "google");
+link.removeAttribute("title")
 
-console.log(link);
+console.log(val);
