@@ -1,38 +1,29 @@
-const clearBtn = document.querySelector(".clear-tasks");
-const card = document.querySelector(".card");
+const form = document.querySelector("form");
+const taskInput = document.getElementById("task");
 const heading = document.querySelector("h5");
 
-//Click
-// clearBtn.addEventListener("click", runEvent.bind("the Text!"));
+taskInput.value = "";
 
-//Double Click
-
-// clearBtn.addEventListener("dbClick", runEvent);
-
-//Mouse Down
-// clearBtn.addEventListener("mousedown", runEvent.bind("text"));
-
-//Mouse Up
-// clearBtn.addEventListener("mouseup", runEvent.bind("text"));
-
-//Mouse Enter
-// clearBtn.addEventListener("mouseenter", runEvent);
-
-//Mouse Leave
-// clearBtn.addEventListener("mouseleave", runEvent);
-
-//Mouse Over
-// clearBtn.addEventListener("mouseover", runEvent);
-
-//Mouse Out
-// clearBtn.addEventListener("mouseout", runEvent);
-
-//Mouse Move
-clearBtn.addEventListener("mousemove", runEvent);
-
-//Event Handler
-function runEvent(text) {
-  event.preventDefault();
-  console.log(text);
-  console.log(`EVENT TYPE ${event.type} `);
+function runEvent(event) {
+  console.log(`EVENT TYPE ${event.type}`);
+  console.log(taskInput.value);
+  console.log(event.target.value);
+  heading.innerText = event.target.value;
 }
+
+// form.addEventListener("submit", runEvent);
+
+//Key Down
+// taskInput.addEventListener("keydown", runEvent);
+
+//Key Up
+// taskInput.addEventListener("keyup", runEvent);
+
+//Key Press
+// taskInput.addEventListener("keypress", runEvent);
+
+//Focus
+taskInput.addEventListener("focus", runEvent);
+
+//Blur
+taskInput.addEventListener("blur", runEvent);
