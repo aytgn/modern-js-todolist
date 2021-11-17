@@ -34,14 +34,17 @@ const TaskBtn = document.querySelector("div.card-content input.btn");
  */
 
 //for simplicity sake lets start with not empty tasks array
-localStorage.setItem("tasks", ["wash these dishes", "pet the cat"]);
+localStorage.setItem(
+  "tasks",
+  JSON.stringify(["wash these dishes", "pet the cat"])
+);
 
 TaskBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  const tasksArray = localStorage.getItem("tasks").split(","); // 1
-  let task;
-  task = taskInput.value; //2
+  const tasksArray = JSON.parse(localStorage.getItem("tasks")); // 1
+  let task = taskInput.value; //2
   tasksArray.push(task); //3
-  localStorage.setItem("tasks", tasksArray); //4
+  console.log(tasksArray);
+  localStorage.setItem("tasks", JSON.stringify(tasksArray)); //4
   console.log(localStorage.getItem("tasks"));
 });
