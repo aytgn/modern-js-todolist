@@ -1,29 +1,32 @@
-const form = document.querySelector("form");
-const taskInput = document.getElementById("task");
-const heading = document.querySelector("h5");
+//EVENT BUBBLING
 
-taskInput.value = "";
+// const cardTitle = document.querySelector(".card-title");
+// cardTitle.addEventListener("click", runEvent.bind(cardTitle, "Card Title"));
 
-function runEvent(event) {
-  console.log(`EVENT TYPE ${event.type}`);
-  console.log(taskInput.value);
-  console.log(event.target.value);
-  heading.innerText = event.target.value;
+// const cardContent = document.querySelector(".card-content");
+// cardContent.addEventListener(
+//   "click",
+//   runEvent.bind(cardContent, "Card Content")
+// );
+
+// const card = document.querySelector(".card");
+// card.addEventListener("click", runEvent.bind(card, "Card"));
+
+// function runEvent(text) {
+//   console.log(text);
+// }
+
+//EVENT DELEGATION
+// const deleteItem = document.querySelector(".delete-item ");
+// deleteItem.addEventListener("click", delItem);
+
+const body = document.querySelector("body");
+body.addEventListener("click", delItem);
+
+function delItem(event) {
+  console.log(event.target); //has event already!!
+  if (event.target.parentElement.classList.contains("delete-item")) {
+    console.log("delete item");
+    event.target.parentElement.parentElement.remove();
+  }
 }
-
-// form.addEventListener("submit", runEvent);
-
-//Key Down
-// taskInput.addEventListener("keydown", runEvent);
-
-//Key Up
-// taskInput.addEventListener("keyup", runEvent);
-
-//Key Press
-// taskInput.addEventListener("keypress", runEvent);
-
-//Focus
-taskInput.addEventListener("focus", runEvent);
-
-//Blur
-taskInput.addEventListener("blur", runEvent);
